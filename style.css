@@ -4,7 +4,9 @@
     box-sizing: border-box;
     font-family: 'Kanit', sans-serif;
 }
-/* global */
+/*
+=======  global  ======== 
+*/
 p{
     font-weight: 300;
 }
@@ -22,9 +24,17 @@ body{
     height: 100vh;
 }
 
-.container-quiz{
+#container{
+    display: none;
+}
+.container-quiz,
+.container{
+    /* position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%); */
     width: 340px;
-    height: 570px;
+    height: 580px;
     background-color: #fff;
     box-shadow:rgb(0 0 0 /10%)  0px 10px 50px ;
     border-radius: 54px 53px;
@@ -34,22 +44,98 @@ body{
 }
 
 
-/*  text container*/
+/*
+ =========    text container  ========
+*/
 .text-container{
     margin-top: 20px;
     padding: 6px 15px;
-    line-height: 31.3px;
+    line-height: 31.8px;
 }
 .btn-container{
     text-align: right;
+    position: relative;
+}
+.text-last{
+    margin-top: 12px;
 }
 .btn-container button{
+    display: inline-block;
+    width: 140px;
+    top:-12px;
+    right: -0px;
+    position: absolute;
     background-color: rgb(233, 86, 60);
     color: wheat;
     border: none;
     outline: none;
-    padding: 6px 25px;
+    padding: 9px 25px;
     cursor: pointer;
     font-size: 20px;
     border-radius: 57px 0px 53px 0;
+    transition: .3s ease-in-out;
+}
+.btn-container button:hover{
+    background-color: blueviolet;
+}
+.btn-container button:active{
+    background-color: green;
+    transition: 0;
+}
+
+
+
+
+/* app rules page */
+.app-rules-container{
+    display: none ;
+}
+.app-rules-container h3{
+    padding: 19px 10px;
+    text-align: center;
+    border-bottom: 1px solid rgb(221, 207, 207);
+}
+.app-rules-container ol {
+    width: 80%;
+    margin: 40px auto;
+    padding: 0px 5px;
+    line-height: 30px;
+}
+.app-rules-container ol li{
+    margin: 18px 0;
+    padding: 0px 0px 0px 16px;
+}
+
+.btn-exit-continue{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: rgb(209, 203, 203); */
+}
+.btn-exit-continue button{
+    border: none;
+    outline: none;
+    color: white;
+    background-color: tomato;
+    padding: 10px 20px;
+    font-size: 18px;
+    margin-top: 12px;
+    cursor:pointer;
+    width: 130px;
+    transition: all linear .4s;
+}
+/* hover btn */
+.btn-exit-continue button:hover{
+    background-color:blueviolet;
+}
+/* active btn */
+.btn-exit-continue button:active{
+    background-color: green;
+    transition: all linear .4s;
+}
+.btn-continue{
+    border-radius: 47px 0 46px 0;
+}
+.btn-exit{
+    border-radius: 0 54px 0 47px;
 }

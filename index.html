@@ -10,9 +10,8 @@
 </head>
 
 <body>
-    <h1>hello one</h1>
     <div id="wraper">
-        <div class="container-quiz">
+        <div class="container-quiz container" id="container">
             <div class="img-container">
                 <img src="img/quiz.svg" alt="home image">
             </div>
@@ -21,10 +20,12 @@
                 <p>
                     If you are looking for an app to create and take quizzes, I recommend Quizizz, Kahoot!, or Quizlet. These apps are all easy to use and have a lot of features. 
                 </p>
-                <h3> This app hosts live trivia games</h3>
-                <p>
-                    Quizlet also allows you to compete against other users in timed challenges.
-                </p>
+                <div class="text-last">
+                    <h3> This app hosts live trivia games</h3>
+                    <p>
+                        Quizlet also allows you to-compete against users in timed challenge
+                    </p>
+                </div>
             </div>
             <div class="btn-container">
                 <button>Start Quiz</button>
@@ -33,6 +34,23 @@
         
         
         
+        <!-- app rules  -->
+        <div class="container app-rules-container">
+            <div class="app-rules-wraper">
+                <h3>Some Rules of this Quiz</h3>
+                <ol>
+                    <li>You will have only <span style="color:rgb(54, 54, 221);font-weight: 500;">15 seconds</span> per each question</li>
+                    <li>Once you select your anwser. it can't be undone</li>
+                    <li>You can select any option once time gose off</li>
+                    <li>You can't exit from the Quiz while you are playing.</li>
+                    <li>You get points on the basic of your correct ans</li>
+                </ol>
+                <div class="btn-exit-continue">
+                    <button class="btn-exit">Exit Quiz</button>
+                    <button class="btn-continue">Continue</button>
+                </div>
+            </div>
+        </div>
         
     </div>
     
