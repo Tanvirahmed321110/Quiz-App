@@ -25,7 +25,7 @@ body{
 }
 
 #container{
-    display: none;
+    /* display: none; */
 }
 .container-quiz,
 .container{
@@ -87,9 +87,12 @@ body{
 
 
 /* app rules page */
+
 .app-rules-container{
-    display: none ;
+    display: none;
 }
+
+
 .app-rules-container h3{
     padding: 19px 10px;
     text-align: center;
@@ -138,4 +141,121 @@ body{
 }
 .btn-exit{
     border-radius: 0 54px 0 47px;
+}
+
+
+
+
+
+
+
+/* 
+  ======  question container  ===========
+*/
+
+.question-container{
+    display: none;
+}
+.question-wraper{
+    padding: 0 30px;
+}
+.question-head {
+    
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.time-contaner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: rgb(195, 202, 202);
+    /* padding: 2px 4px; */
+    border-radius: 4px;
+    color: blue;
+    padding-left: 4px;
+    height: 28px;
+    width: 125px;
+}
+#time-second{
+    background-color: rgb(66, 66, 66);
+    height: 28px;
+    padding: 3px;
+    width: 40px;
+    text-align: center;
+    color: white;
+    border-radius: 4px;
+}
+.question-tittle{
+    margin: 30px 0;
+    font-size: 20px;
+}
+
+
+.options-container{
+    margin-bottom: 35px;
+}
+.options-container .option {
+    background-color: rgb(225, 233, 233);
+    margin-top:  13px;
+    border: 1px solid rgb(194, 190, 190);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.option:hover{
+    background-color: rgb(179, 182, 189);
+}
+
+
+/* 
+   ===== footer ======
+*/
+footer{
+    margin-top: 60px;
+    border-top: 1px solid rgb(187, 187, 180);
+    height: 65px;
+    display: flex;
+    align-items: end;;
+}
+.footer-container {
+    width: 100%;
+    height: 25px;
+    display: flex;
+    justify-content: space-between ;
+}
+.footer-left{
+    padding-left: 25px;
+    color: rgb(29, 29, 8);
+}
+.btn-next{
+    border-radius: 54px  0 50px 0; 
+    outline: none;
+    border:none;
+    height: 45px;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    background-color: tomato;
+    width: 110px;
+    letter-spacing: .8px;
+}
+.btn-next:hover{
+    background-color: blue;
+    transition: .2s;
+}
+#pre{
+    background-color:tomato; 
+    padding: 12px;
+    font-size: 25px;
+    color: wheat;
+    outline: none;
+    border: none;
+    margin-bottom: -20px;
+    border-radius: 0 55px 0 50px ;
+    cursor: pointer;
 }
