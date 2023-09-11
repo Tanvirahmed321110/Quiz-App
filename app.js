@@ -65,14 +65,28 @@ let exitBtn = document.querySelector('.btn-exit');
 let continueBtn = document.querySelector('.btn-continue');
 let preBtn = document.getElementById('pre');
 let nextBtn = document.querySelector('.btn-next');
+let againTryBtn = document.getElementById('again-try-btn')
+let exitAppBtn = document.getElementById('exit-app-btn')
 
 
 const home = document.querySelector(".container-quiz");
 const rulesPage = document.querySelector(".app-rules-container");
 const questionPage = document.querySelector('.question-container');
+const resultPage = document.querySelector('.result-box')
 
 let timeDisplay = document.getElementById("time-second");
 let timeLineDisplay =document.getElementById('time-line');
+
+
+// exit btn
+exitAppBtn.addEventListener('click',function(){
+    window.location.reload();
+});
+// again try btn
+againTryBtn.addEventListener('click',function(){
+    window.location.reload();
+})
+
 
 
 // start btn
@@ -80,6 +94,7 @@ startQuizBtn.onclick =()=>{
     
     rulesPage.style.display='block'
     home.style.display='none';
+    audioSucess('audio/mouse-click-153941.mp3')
 }
 
 // exit btn
@@ -99,7 +114,8 @@ continueBtn.onclick = function(){
     rulesPage.style.display='none';
     showQuestion(count);
     startTimerF(15);
-    startTimeLineF(0)
+    startTimeLineF(0);
+    audioSucess('audio/mouse-click-153941.mp3')
 }
 
 // pre btn
@@ -113,6 +129,8 @@ preBtn.addEventListener('click',()=>{
 let count = 0;
 let counter;
 let counterTimeLine;
+let userScore = 0;
+
 
 // next btn
 document.querySelector('.btn-next').addEventListener('click',function(){
@@ -127,9 +145,12 @@ document.querySelector('.btn-next').addEventListener('click',function(){
         nextBtn.style.display='none'
     }
     else{
-        console.log("Findsh ");
-        nextBtn.style.display='none'
+        resultPage.classList.add('result-show')
+        questionPage.style.display='none';
+        showResult()
+        audioSucess('audio/notification.mp3',true);
     }
+    audioSucess('audio/notification.mp3',false);
 })
 
 
@@ -167,9 +188,10 @@ function correctAnsF (userClick,eachOption){
     let allOptions = optionsContainer.children.length;
 
     if(userSelected === anwser){
-        console.log(allOptions)
+        userScore+=1;
         eachOption.classList.add('correct');
         eachOption.innerHTML =`${eachOption.innerText} <span><i class="fa-solid fa-circle-check"></i></span> `
+        audioSucess('audio/sucess.mp3')
     }
     else{
         eachOption.classList.add('wrong');
@@ -180,6 +202,7 @@ function correctAnsF (userClick,eachOption){
                 optionsContainer.children[i].innerHTML =`${optionsContainer.children[i].innerText} <span><i class="fa-solid fa-circle-check"></i></span> `;
                 optionsContainer.children[i].setAttribute('class','option correct');
             }
+            audioSucess('audio/wrong ans.mp3')
         }
     }
     
@@ -191,10 +214,38 @@ function correctAnsF (userClick,eachOption){
     // clear timer and timer line
     clearInterval(counter)
     clearInterval(counterTimeLine)
-
 }
 
 
+
+
+// show result 
+function showResult (){
+    let scoreTag = document.getElementById('score');
+    if(userScore>=4){
+        scoreTag.innerHTML =`Welcome👍 You Got <span> ${userScore} </span> Out Of <span id="totalQuestion">${questionData.length}</span>`
+    }
+    else{
+        scoreTag.innerHTML =`Not Good😥 You Got <span> ${userScore} </span> Out Of <span id="totalQuestion">${questionData.length}</span>`
+    }
+    
+}
+
+
+
+
+// devloper details
+document.getElementById('developer-details').addEventListener('click',()=>{
+    audioSucess('audio/going.mp3',false)
+})
+
+
+// audio add
+function audioSucess(name,loop){
+    let audio = new Audio(name);
+    audio.loop = loop;
+    audio.play();
+}
 
 
 function startTimerF(time){
